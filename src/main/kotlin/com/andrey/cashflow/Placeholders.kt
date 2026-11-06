@@ -20,8 +20,9 @@ class Placeholders(private val plugin: CashFlow) : PlaceholderExpansion() {
             val row = parts.getOrNull(1)?.toIntOrNull()?.let(plugin.baltop::at)
             return when (parts.getOrNull(2)) {
                 "name" -> row?.name.orEmpty()
-                "balance" -> row?.let { Money.short(it.balance, decimals) }.orEmpty()
-                "balance_formatted" -> row?.let { Money.full(it.balance, decimals) }.orEmpty()
+                "balance" -> row?.let { Money.raw(it.balance) }.orEmpty()
+                "balance_formatted" -> row?.let { Money.short(it.balance, decimals) }.orEmpty()
+                "balance_commas" -> row?.let { Money.full(it.balance, decimals) }.orEmpty()
                 else -> null
             }
         }
@@ -29,8 +30,8 @@ class Placeholders(private val plugin: CashFlow) : PlaceholderExpansion() {
         val balance = account?.balance?.get() ?: plugin.settings.startingBalance
         return when (params) {
             "balance" -> Money.raw(balance)
-            "balance_formatted" -> Money.full(balance, decimals)
-            "balance_short" -> Money.short(balance, decimals)
+            "balance_formatted" -> Money.short(balance, decimals)
+            "balance_commas" -> Money.full(balance, decimals)
             "rank" -> player?.let { plugin.baltop.rank(it.uniqueId)?.toString() } ?: "-"
             "paytoggle" -> if (account?.paymentsOff == true) "off" else "on"
             else -> null
