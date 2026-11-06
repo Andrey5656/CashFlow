@@ -245,13 +245,14 @@ shown as plain text, so a name can never add colors.
 | Placeholder | Example |
 |---|---|
 | `%cashflow_balance%` | `1500.5` |
-| `%cashflow_balance_formatted%` | `1,500.50` |
-| `%cashflow_balance_short%` | `1.5K` |
+| `%cashflow_balance_formatted%` | `1.5K` |
+| `%cashflow_balance_commas%` | `1,500.50` |
 | `%cashflow_rank%` | `12`, or `-` when the player is not on the top list |
 | `%cashflow_paytoggle%` | `on` when the player receives payments, `off` when not |
 | `%cashflow_top_<n>_name%` | The name at place `<n>` on the top list |
-| `%cashflow_top_<n>_balance%` | Their balance, short |
-| `%cashflow_top_<n>_balance_formatted%` | Their balance, full |
+| `%cashflow_top_<n>_balance%` | Their balance, like `1500.5` |
+| `%cashflow_top_<n>_balance_formatted%` | Their balance, like `1.5K` |
+| `%cashflow_top_<n>_balance_commas%` | Their balance, like `1,500.50` |
 
 The top list is rebuilt every 30 seconds.
 
