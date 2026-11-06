@@ -1,0 +1,45 @@
+storage:
+  type: sqlite
+  mysql:
+    host: localhost
+    port: 3306
+    database: minecraft
+    username: root
+    password: ""
+
+currency:
+  singular: Dollar
+  plural: Dollars
+  decimals: 2
+  format: short
+  money: "<#00FF00>$</#00FF00> <amount>"
+
+starting-balance: 0
+max-balance: 0
+
+pay:
+  minimum: 1
+  cooldown: 1.0
+
+log-days: 30
+
+sounds:
+  pay-sent:
+    sound: entity.experience_orb.pickup
+    volume: 1.0
+    pitch: 1.0
+  pay-received:
+    sound: entity.experience_orb.pickup
+    volume: 1.0
+    pitch: 1.0
+  error:
+    sound: entity.villager.no
+    volume: 1.0
+    pitch: 1.0
+
+network:
+  enabled: false
+  redis:
+    host: localhost
+    port: 6379
+    password: ""

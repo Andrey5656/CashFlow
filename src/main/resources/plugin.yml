@@ -1,0 +1,71 @@
+name: CashFlow
+version: '${project.version}'
+main: com.andrey.cashflow.CashFlow
+api-version: '1.21.7'
+folia-supported: true
+author: Andrey
+description: A fast Vault economy with pay, baltop, history, rollback and network sync.
+depend:
+  - Vault
+softdepend:
+  - PlaceholderAPI
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:2.3.21
+  - com.zaxxer:HikariCP:5.1.0
+  - org.xerial:sqlite-jdbc:3.53.2.1
+  - com.mysql:mysql-connector-j:9.7.0
+  - redis.clients:jedis:5.2.0
+
+commands:
+  balance:
+    description: Shows a balance.
+    usage: /balance [player]
+    aliases: [bal, money]
+  pay:
+    description: Pays a player.
+    usage: /pay <player> <amount>
+  paytoggle:
+    description: Turns receiving payments off or back on.
+    usage: /paytoggle
+  paymsgtoggle:
+    description: Hides or shows received payment messages.
+    usage: /paymsgtoggle
+  baltop:
+    description: Shows the top balances.
+    usage: /baltop [page]
+  history:
+    description: Shows your recent transactions.
+    usage: /history [page]
+  eco:
+    description: Manages balances.
+    usage: /eco <give|take|set|reset|history|rollback|reload>
+    aliases: [economy]
+
+permissions:
+  cashflow.balance:
+    description: Use /balance.
+    default: true
+  cashflow.balance.others:
+    description: See another player's balance with /balance <player>.
+    default: true
+  cashflow.pay:
+    description: Use /pay.
+    default: true
+  cashflow.paytoggle:
+    description: Use /paytoggle.
+    default: true
+  cashflow.paymsgtoggle:
+    description: Use /paymsgtoggle.
+    default: true
+  cashflow.baltop:
+    description: Use /baltop.
+    default: true
+  cashflow.history:
+    description: Use /history.
+    default: true
+  cashflow.admin:
+    description: Use /eco.
+    default: op
+  cashflow.baltop.hidden:
+    description: Leaves the player out of /baltop.
+    default: false
